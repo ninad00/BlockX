@@ -1,0 +1,331 @@
+
+:root {
+    --primary-color: #8B5CF6;
+    --primary-dark: #7C3AED;
+    --secondary-color: #1F1F1F;
+    --background-color: #121212;
+    --surface-color: #1E1E1E;
+    --border-color: #2D2D2D;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A3A3A3;
+    --hover-color: #9333EA;
+    --accent-glow: rgba(139, 92, 246, 0.15);
+    --heart-color: #EC4899;
+    --heart-hover: #F472B6;
+    --input-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --tweet-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--background-color) 0%, #1a1a1a 100%);
+}
+
+/* Button styles */
+button {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--accent-glow);
+}
+
+/* Form styles */
+#postForm {
+    max-width: 600px;
+    margin: 40px auto;
+    background: var(--surface-color);
+    padding: 32px;
+    border-radius: 24px;
+    box-shadow: var(--tweet-shadow);
+    border: 1px solid var(--border-color);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+}
+
+#postForm:hover {
+    transform: translateY(-5px) rotateX(2deg);
+}
+
+textarea {
+    width: 580px;
+    min-height: 120px;
+    padding: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    resize: vertical;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    font-family: 'Space Grotesk', sans-serif;
+    box-shadow: var(--input-shadow);
+    backdrop-filter: blur(10px);
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 8px 12px;
+    color: white;
+    background-color: #1e1e1e;
+    border: 1px dashed #a78bfa;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.custom-file-upload:hover {
+    background-color: #292929;
+    border-color: #c084fc;
+}
+
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+input[type="file"] {
+    margin: 20px 0;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 2px dashed var(--primary-color);
+    color: var(--text-secondary);
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+    border-color: var(--hover-color);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Header styles */
+h1,
+h2 {
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-family: 'Space Grotesk', sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Tweet list styles */
+#tweetList {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0;
+    list-style: none;
+    perspective: 1000px;
+}
+
+#tweetList li {
+    background: var(--surface-color);
+    padding: 32px;
+    margin-bottom: 24px;
+    border-radius: 24px;
+    box-shadow: var(--tweet-shadow);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    backdrop-filter: blur(10px);
+}
+
+#tweetList li:hover {
+    transform: translateY(-5px) rotateX(2deg);
+    border-color: var(--primary-color);
+}
+
+.tweet-content {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+.tweet-id {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Image styles */
+.tweet-image {
+
+    width: 100%;
+    max-width: 300px;
+    border-radius: 4px;
+    margin: 16px auto;
+    display: block;
+    object-fit: fill;
+    max-height: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.tweet-image:hover {
+    transform: scale(1.02);
+}
+
+/* Heart-shaped like button styles */
+.like-button {
+    background: transparent;
+    border: none;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    margin-top: 12px;
+    color: var(--heart-color);
+    font-size: 14px;
+    font-weight: 500;
+    align-self: flex-start;
+}
+
+.like-button::before {
+    content: "♥";
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.like-button:hover {
+    color: var(--heart-hover);
+    background: transparent;
+    transform: scale(1.05);
+    box-shadow: none;
+}
+
+.like-button:hover::before {
+    transform: scale(1.2);
+}
+
+.like-button.liked {
+    color: var(--heart-color);
+    animation: heartBeat 0.3s ease;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Connect button specific styles */
+#connect {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+}
+
+#connect:hover {
+    transform: translateY(-2px) translateZ(10px);
+}
+
+/* Navigation buttons */
+.nav-button {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+    body {
+        padding: 16px;
+    }
+
+    #postForm {
+        margin: 16px;
+        padding: 24px;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    #connect {
+        position: static;
+        margin-bottom: 16px;
+    }
+
+    #tweetList li {
+        padding: 4px;
+    }
+
+    .tweet-image {
+        width: 200px;
+        height: 500px;
+        object-fit: contain;
+        /* or "cover" depending on your goal */
+        border-radius: 16px;
+        /* optional for rounded corners */
+    }
+} 
